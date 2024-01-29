@@ -1,0 +1,32 @@
+{
+  "name": "03-ignition-our-app",
+  "version": "1.0.0",
+  "description": "learning namaste react ",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vedhatech002/Namaste-React.git"
+  },
+  "keywords": [],
+  "author": "vijayavedhasekaran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vedhatech002/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/vedhatech002/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browsersList": [
+    "last 10 Chrome version"
+  ]
+}

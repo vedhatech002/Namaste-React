@@ -10,8 +10,10 @@
  *  </div>
  *</div>
  *
- * ReactElement(object) =>HTML(Browser understand)
+ *
  */
+
+// React.createElement => Object => render(Object) => HTML(Browser understand)
 
 //single element
 const heading = React.createElement(
