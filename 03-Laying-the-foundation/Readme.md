@@ -13,4 +13,5 @@
 
 ## Transpiling JSX
 
-- `JSX` => `Babel` transplites it to ` React.createEement`` => ReactElement-JS  `Object``=>`HTMLElement`(render)
+- `JSX` => `Babel` transplites it to ` React.createEement` => ReactElement-JS `Object`=>`HTMLElement`(render)
+  ``
