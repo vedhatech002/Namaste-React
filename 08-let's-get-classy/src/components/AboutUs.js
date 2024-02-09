@@ -11,7 +11,14 @@ class AboutUs extends React.Component {
   }
 
   componentDidMount() {
-    console.log("parent Component did mount");
+    // console.log("parent Component did mount");
+    this.timer = setInterval(() => {
+      console.log("Componentdidmount timer called");
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
@@ -20,8 +27,8 @@ class AboutUs extends React.Component {
       <>
         <h1>About Class Component Us</h1>
         <UserClass name={"first "} location={"vedaranyam"} />
-        <UserClass name={"second"} location={"vedaranyam"} />
-        <Author />
+        {/* <UserClass name={"second"} location={"vedaranyam"} /> */}
+        {/* <Author /> */}
       </>
     );
   }

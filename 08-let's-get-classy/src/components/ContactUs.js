@@ -1,5 +1,7 @@
+import User from "./User";
+
 const ContactUs = () => {
-  return <h1>Contact us</h1>;
+  return <User />;
 };
 
 export default ContactUs;
