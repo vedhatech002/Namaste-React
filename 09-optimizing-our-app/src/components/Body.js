@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import RestaruntCard from "./RestaruntCard";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   // Hooks => simple js utility function writen by facebook developers
@@ -43,6 +44,11 @@ const Body = () => {
     }
   };
   console.log("body rendered");
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus) {
+    return <h1>you are offline</h1>;
+  }
+
   // conditional rendering
   if (restaruntList?.length === 0) {
     return <Shimmer />;
