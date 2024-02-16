@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import userContext from "../utils/userContext";
-import RestaruntCard, { withOfferLabel } from "./RestaruntCard";
+import { useEffect, useState } from "react";
+
+import RestaruntCard from "./RestaruntCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { withOfferLabel } from "./RestaruntCard";
 
 const Body = () => {
   const [restaruntList, setRestaruntList] = useState([]); //passing default value of
@@ -11,8 +10,6 @@ const Body = () => {
   const [filteredResList, setFilterResList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
-
-  const RestaruantCardOpened = withOfferLabel(RestaruntCard);
 
   useEffect(() => {
     fetchData(); // called after the component render
@@ -24,10 +21,10 @@ const Body = () => {
       );
       const jsondata = await data.json();
 
-      // console.log(
-      //   jsondata.data.cards[2]?.card?.card?.gridElements?.infoWithStyle
-      //     ?.restaurants
-      // );
+      console.log(
+        jsondata.data.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
 
       setRestaruntList(
         jsondata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -43,12 +40,12 @@ const Body = () => {
       console.log(e);
     }
   };
-
+  console.log("body rendered");
   const onlineStatus = useOnlineStatus();
   if (!onlineStatus) {
     return <h1>you are offline</h1>;
   }
-  const { loggedInUser, setUserName } = useContext(userContext);
+
   // conditional rendering
   if (restaruntList?.length === 0) {
     return <Shimmer />;
@@ -82,17 +79,7 @@ const Body = () => {
           >
             Search
           </button>
-          <input
-            type="text"
-            className="border-2"
-            value={loggedInUser}
-            placeholder="userName"
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-          />
         </div>
-
         <button
           className="text-sm bg-green-500 text-white px-4 py-1 rounded-md"
           onClick={() => {
@@ -106,13 +93,9 @@ const Body = () => {
         </button>
       </div>
       <div className="grid grid-cols-4 gap-4 items-start mx-20 my-10">
-        {filteredResList?.map((restarunt) => {
-          return restarunt?.info?.isOpen ? (
-            <RestaruantCardOpened resData={restarunt} />
-          ) : (
-            <RestaruntCard key={restarunt?.info?.id} resData={restarunt} />
-          );
-        })}
+        {filteredResList?.map((restarunt) => (
+          <RestaruntCard key={restarunt?.info?.id} resData={restarunt} />
+        ))}
       </div>
     </section>
   );
