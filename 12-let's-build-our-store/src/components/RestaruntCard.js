@@ -7,7 +7,10 @@ const RestaruntCard = (props) => {
   //   const { deliveryTime } = resData?.sla;\
   const { cuisines } = resData?.info;
   return (
-    <Link to={"/restaurant/" + resData.info?.id} className="w-[250px]  p">
+    <Link
+      to={"/restaurant/" + resData.info?.id}
+      className="w-[250px]  p-2 bg-slate-300 rounded-md"
+    >
       <img
         className="w-full h-36 object-cover"
         src={CDN_URL + resData?.info?.cloudinaryImageId}
@@ -23,21 +26,6 @@ const RestaruntCard = (props) => {
       <h4>{resData.info?.sla?.deliveryTime} Minutes</h4>
     </Link>
   );
-};
-
-//Higher Order Components
-
-//nputs - restaruantCard ==> Restrauntcardeithoffer
-
-export const withOfferLabel = (RestaruntCard) => {
-  return (props) => {
-    return (
-      <div className="w-full relative  bg-slate-300">
-        <label className="absolute top-1 bg-black text-white">opened</label>
-        <RestaruntCard resData={props.resData} />
-      </div>
-    );
-  };
 };
 
 export default RestaruntCard;

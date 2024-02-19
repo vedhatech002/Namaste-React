@@ -3,16 +3,12 @@ import userContext from "../utils/userContext";
 import RestaruntCard, { withOfferLabel } from "./RestaruntCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { withOfferLabel } from "./RestaruntCard";
-
 const Body = () => {
   const [restaruntList, setRestaruntList] = useState([]); //passing default value of
 
   const [filteredResList, setFilterResList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
-
-  const RestaruantCardOpened = withOfferLabel(RestaruntCard);
 
   useEffect(() => {
     fetchData(); // called after the component render
@@ -107,9 +103,7 @@ const Body = () => {
       </div>
       <div className="grid grid-cols-4 gap-4 items-start mx-20 my-10">
         {filteredResList?.map((restarunt) => {
-          return restarunt?.info?.isOpen ? (
-            <RestaruantCardOpened resData={restarunt} />
-          ) : (
+          return (
             <RestaruntCard key={restarunt?.info?.id} resData={restarunt} />
           );
         })}

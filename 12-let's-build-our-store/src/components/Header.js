@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 import { LOGO_URL } from "../utils/Constant";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const { loggedInUser } = useContext(userContext);
 
-  const onlinestatus = useOnlineStatus();
+  //subsribing to the store using a selector
+  const cartItems = useSelector((state) => state.cart.items);
+  console.log(cartItems);
 
   return (
     <header className="flex items-center font-inter justify-between px-6 py-1 border-b shadow-sm fixed w-full bg-white z-10">
@@ -21,7 +24,9 @@ const Header = () => {
         <Link to={"/aboutus"}>About Us</Link>
         <Link to="/contactus"> Contact Us</Link>
         <Link to="/grocery">Grocery</Link>
-        <a>Cart</a>
+        <Link to="/cart" className=" text-lg font-semibold">
+          Cart -({cartItems.length}-items)
+        </Link>
         <button
           className="px-4 py-1 bg-slate-950 text-white rounded-md font-semibold"
           onClick={() => {
