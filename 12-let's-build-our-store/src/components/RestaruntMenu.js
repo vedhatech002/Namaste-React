@@ -16,10 +16,10 @@ const RestaruntMenu = () => {
   }
 
   const { name, id, avgRating, costForTwoMessage, cuisines } =
-    resInfo?.data?.cards[0]?.card?.card?.info;
+    resInfo?.data?.cards[2]?.card?.card?.info;
 
   const { title, itemCards } =
-    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+    resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card;
 
   // console.log(
@@ -27,7 +27,7 @@ const RestaruntMenu = () => {
   // );
 
   const foodCategories =
-    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
