@@ -1,0 +1,60 @@
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  border-bottom: 1px solid gray;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+}
+
+.logo {
+  width: 80px;
+}
+
+.nav {
+  cursor: pointer;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  display: flex;
+}
+
+.res-card {
+  width: 200px;
+  height: 300px;
+  padding: 5px;
+}
+
+.res-card:hover {
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+.res-log {
+  width: -webkit-fill-available;
+}
+
+.res-container {
+  flex-wrap: wrap;
+  gap: 1rem;
+  display: flex;
+}
+
+.search-container {
+  padding: 10px;
+}
+
+.filter-btn {
+  cursor: pointer;
+  margin: 10px;
+}
+
+/*# sourceMappingURL=index.e5980c4e.css.map */
