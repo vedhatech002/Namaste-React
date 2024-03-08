@@ -11,7 +11,7 @@ const Header = () => {
 
   //subsribing to the store using a selector
   const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return (
     <header className="flex items-center font-inter justify-between px-6 py-1 border-b shadow-sm fixed w-full bg-white z-10">
@@ -31,7 +31,7 @@ const Header = () => {
         <button
           className="px-4 py-1 bg-slate-950 text-white rounded-md font-semibold"
           onClick={() => {
-            btnName === "login" ? setBtnName("logout") : setBtnName("login");
+            btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
           }}
         >
           {btnName}

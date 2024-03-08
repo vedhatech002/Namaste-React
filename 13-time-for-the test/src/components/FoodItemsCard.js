@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 const FoodItem = (props) => {
   const { name, price, defaultPrice, description, imageId } =
     props.data?.card?.info;
-  console.log(props.data?.card?.info);
+  // console.log(props.data?.card?.info);
 
   const dispatch = useDispatch();
 
@@ -14,7 +14,10 @@ const FoodItem = (props) => {
   };
 
   return (
-    <div className="border-b-2 py-6 px-2 grid grid-cols-[3fr,1fr] gap-4">
+    <div
+      data-testid="foodItemCard"
+      className="border-b-2 py-6 px-2 grid grid-cols-[3fr,1fr] gap-4"
+    >
       <div>
         <h6 className="text-lg font-semibold">{name}</h6>
         <span className="text-sm font-semibold ">

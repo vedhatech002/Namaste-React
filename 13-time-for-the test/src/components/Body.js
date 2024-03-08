@@ -34,7 +34,7 @@ const Body = () => {
         jsondata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
-      console.log(filteredResList);
+      // console.log(filteredResList);
     } catch (e) {
       console.log(e);
     }
@@ -57,6 +57,7 @@ const Body = () => {
           <input
             className="px-4 py-1  border-2 rounded-md border-slate-950"
             type="text"
+            data-testid="SearchInput"
             placeholder="search restarunt"
             value={searchText}
             onChange={(e) => {
@@ -67,12 +68,11 @@ const Body = () => {
             className="px-4 py-1 bg-slate-950 text-white rounded-md"
             onClick={() => {
               const filteredData = restaruntList.filter((res) => {
-                console.log(searchText);
                 return res.info?.name
                   .toLowerCase()
                   .includes(searchText.toLowerCase());
               });
-              // console.log(filteredRes);
+              // console.log(filteredData);
               setFilterResList(filteredData);
             }}
           >
@@ -95,6 +95,7 @@ const Body = () => {
             const topRestaunt = restaruntList?.filter(
               (restarunt) => restarunt?.info?.avgRating > 4.3
             );
+            // console.log(topRestaunt);
             setFilterResList(topRestaunt);
           }}
         >

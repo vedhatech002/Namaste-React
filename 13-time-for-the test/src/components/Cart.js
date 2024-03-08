@@ -24,7 +24,7 @@ const Cart = () => {
       </div>
       <div className=" mx-auto my-12 ">
         {CartItems.length === 0 ? (
-          <h1>Cart is emply please order items</h1>
+          <h1>Cart is empty please order items</h1>
         ) : (
           CartItems.map((foodObj) => (
             <CartCard data={foodObj} key={foodObj.id} />

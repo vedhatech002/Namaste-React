@@ -27334,7 +27334,7 @@ const Header = ()=>{
     const { loggedInUser } = (0, _react.useContext)((0, _userContextDefault.default));
     //subsribing to the store using a selector
     const cartItems = (0, _reactRedux.useSelector)((state)=>state.cart.items);
-    console.log(cartItems);
+    // console.log(cartItems);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
         className: "flex items-center font-inter justify-between px-6 py-1 border-b shadow-sm fixed w-full bg-white z-10",
         children: [
@@ -27404,7 +27404,7 @@ const Header = ()=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "px-4 py-1 bg-slate-950 text-white rounded-md font-semibold",
                         onClick: ()=>{
-                            btnName === "login" ? setBtnName("logout") : setBtnName("login");
+                            btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
                         },
                         children: btnName
                     }, void 0, false, {
@@ -35254,7 +35254,7 @@ const Body = ()=>{
             setRestaruntList(jsondata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
             // we pass the same fetched dta to state variable
             setFilterResList(jsondata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            console.log(filteredResList);
+        // console.log(filteredResList);
         } catch (e) {
             console.log(e);
         }
@@ -35286,6 +35286,7 @@ const Body = ()=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 className: "px-4 py-1  border-2 rounded-md border-slate-950",
                                 type: "text",
+                                "data-testid": "SearchInput",
                                 placeholder: "search restarunt",
                                 value: searchText,
                                 onChange: (e)=>{
@@ -35300,16 +35301,15 @@ const Body = ()=>{
                                 className: "px-4 py-1 bg-slate-950 text-white rounded-md",
                                 onClick: ()=>{
                                     const filteredData = restaruntList.filter((res)=>{
-                                        console.log(searchText);
                                         return res.info?.name.toLowerCase().includes(searchText.toLowerCase());
                                     });
-                                    // console.log(filteredRes);
+                                    // console.log(filteredData);
                                     setFilterResList(filteredData);
                                 },
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 66,
+                                lineNumber: 67,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -35335,6 +35335,7 @@ const Body = ()=>{
                         className: "text-sm bg-green-500 text-white px-4 py-1 rounded-md",
                         onClick: ()=>{
                             const topRestaunt = restaruntList?.filter((restarunt)=>restarunt?.info?.avgRating > 4.3);
+                            // console.log(topRestaunt);
                             setFilterResList(topRestaunt);
                         },
                         children: "Top Rated Restarunt"
@@ -35356,13 +35357,13 @@ const Body = ()=>{
                         resData: restarunt
                     }, restarunt?.info?.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 107,
+                        lineNumber: 108,
                         columnNumber: 13
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 104,
+                lineNumber: 105,
                 columnNumber: 7
             }, undefined)
         ]
@@ -35407,13 +35408,14 @@ const RestaruntCard = (props)=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
         to: "/restaurant/" + resData.info?.id,
         className: "w-[250px]  p-2 bg-slate-300 rounded-md",
+        "data-testid": "resCard",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "w-full h-36 object-cover",
                 src: (0, _constant.CDN_URL) + resData?.info?.cloudinaryImageId
             }, void 0, false, {
                 fileName: "src/components/RestaruntCard.js",
-                lineNumber: 14,
+                lineNumber: 16,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -35421,7 +35423,7 @@ const RestaruntCard = (props)=>{
                 children: resData.info?.name
             }, void 0, false, {
                 fileName: "src/components/RestaruntCard.js",
-                lineNumber: 18,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -35429,14 +35431,14 @@ const RestaruntCard = (props)=>{
                 children: cuisines.length < 4 ? cuisines.join(",") : (cuisines[0], cuisines[1], cuisines[2], cuisines[3] + "....")
             }, void 0, false, {
                 fileName: "src/components/RestaruntCard.js",
-                lineNumber: 19,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: resData.info?.costForTwo
             }, void 0, false, {
                 fileName: "src/components/RestaruntCard.js",
-                lineNumber: 24,
+                lineNumber: 26,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -35446,7 +35448,7 @@ const RestaruntCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/RestaruntCard.js",
-                lineNumber: 25,
+                lineNumber: 27,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -35456,13 +35458,13 @@ const RestaruntCard = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/RestaruntCard.js",
-                lineNumber: 26,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestaruntCard.js",
-        lineNumber: 10,
+        lineNumber: 11,
         columnNumber: 5
     }, undefined);
 };
@@ -36041,13 +36043,14 @@ var _s = $RefreshSig$();
 const FoodItem = (props)=>{
     _s();
     const { name, price, defaultPrice, description, imageId } = props.data?.card?.info;
-    console.log(props.data?.card?.info);
+    // console.log(props.data?.card?.info);
     const dispatch = (0, _reactRedux.useDispatch)();
     const handleAddItem = (item)=>{
         //dispatch an action
         dispatch((0, _cartSlice.addItem)(item));
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        "data-testid": "foodItemCard",
         className: "border-b-2 py-6 px-2 grid grid-cols-[3fr,1fr] gap-4",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36057,7 +36060,7 @@ const FoodItem = (props)=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/components/FoodItemsCard.js",
-                        lineNumber: 19,
+                        lineNumber: 22,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -36068,7 +36071,7 @@ const FoodItem = (props)=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/FoodItemsCard.js",
-                        lineNumber: 20,
+                        lineNumber: 23,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -36076,13 +36079,13 @@ const FoodItem = (props)=>{
                         children: description
                     }, void 0, false, {
                         fileName: "src/components/FoodItemsCard.js",
-                        lineNumber: 23,
+                        lineNumber: 26,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/FoodItemsCard.js",
-                lineNumber: 18,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36093,7 +36096,7 @@ const FoodItem = (props)=>{
                         src: (0, _constant.FOOD_IMG_URL) + imageId
                     }, void 0, false, {
                         fileName: "src/components/FoodItemsCard.js",
-                        lineNumber: 29,
+                        lineNumber: 32,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -36102,13 +36105,13 @@ const FoodItem = (props)=>{
                         children: "Add +"
                     }, void 0, false, {
                         fileName: "src/components/FoodItemsCard.js",
-                        lineNumber: 34,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/FoodItemsCard.js",
-                lineNumber: 27,
+                lineNumber: 30,
                 columnNumber: 7
             }, undefined)
         ]
@@ -40158,7 +40161,7 @@ const Cart = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: " mx-auto my-12 ",
                 children: CartItems.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                    children: "Cart is emply please order items"
+                    children: "Cart is empty please order items"
                 }, void 0, false, {
                     fileName: "src/components/Cart.js",
                     lineNumber: 27,
@@ -40213,6 +40216,7 @@ const CartCard = (props)=>{
     const { name, price, defaultPrice, description, imageId } = props.data;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "border-b-2 py-6 px-2 grid grid-cols-[3fr,1fr] gap-4",
+        "data-testid": "cartItem",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
@@ -40221,7 +40225,7 @@ const CartCard = (props)=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/components/CartCard.js",
-                        lineNumber: 8,
+                        lineNumber: 11,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -40232,7 +40236,7 @@ const CartCard = (props)=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/CartCard.js",
-                        lineNumber: 9,
+                        lineNumber: 12,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -40240,13 +40244,13 @@ const CartCard = (props)=>{
                         children: description
                     }, void 0, false, {
                         fileName: "src/components/CartCard.js",
-                        lineNumber: 12,
+                        lineNumber: 15,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/CartCard.js",
-                lineNumber: 7,
+                lineNumber: 10,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40256,12 +40260,12 @@ const CartCard = (props)=>{
                     src: (0, _constant.FOOD_IMG_URL) + imageId
                 }, void 0, false, {
                     fileName: "src/components/CartCard.js",
-                    lineNumber: 18,
+                    lineNumber: 21,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/CartCard.js",
-                lineNumber: 16,
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined)
         ]

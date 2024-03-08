@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for ContactUs.js</title>
+    <title>Code coverage report for components/RestaruntCard.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> ContactUs.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> RestaruntCard.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -87,8 +87,25 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">75x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75x</span>
+<span class="cline-any cline-yes">75x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,30 +128,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ContactUs = () =&gt; {
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CDN_URL } from "../utils/Constant";
+import { Link } from "react-router-dom";
+&nbsp;
+const RestaruntCard = (props) =&gt; {
+  const { resData } = props;
+  //   const {resName, cuisine, avgRating } = resData;
+  //   const { deliveryTime } = resData?.sla;\
+&nbsp;
+  const { cuisines } = resData?.info;
   return (
-    &lt;div&gt;
-      &lt;h1 className=" text-center font-bold text-3xl p-4 m-4"&gt;Contact us&lt;/h1&gt;
-      &lt;form className="flex flex-col gap-6 px-8 w-6/12 mx-auto"&gt;
-        &lt;input
-          type="text"
-          className="border-2 border-black px-4 py-1"
-          placeholder="name"
-        /&gt;
-        &lt;input
-          type="text"
-          className="border-2 border-black px-4 py-1"
-          placeholder="message"
-        /&gt;
-        &lt;button className="bg-black text-white font-semibold px-4 py-1 rounded-md"&gt;
-          Submit
-        &lt;/button&gt;
-      &lt;/form&gt;
-    &lt;/div&gt;
+    &lt;Link
+      to={"/restaurant/" + resData.info?.id}
+      className="w-[250px]  p-2 bg-slate-300 rounded-md"
+      data-testid="resCard"
+    &gt;
+      &lt;img
+        className="w-full h-36 object-cover"
+        src={CDN_URL + resData?.info?.cloudinaryImageId}
+      /&gt;
+      &lt;h3 className="text-lg font-semibold"&gt;{resData.info?.name}&lt;/h3&gt;
+      &lt;h4 className="text-sm"&gt;
+        {cuisines.length &lt; 4
+          ? cuisines.join(",")
+          : (cuisines[0], cuisines[1], cuisines[2], cuisines[3] + "....")}
+      &lt;/h4&gt;
+      &lt;h4&gt;{resData.info?.costForTwo}&lt;/h4&gt;
+      &lt;h4&gt;{resData.info?.avgRating} stars&lt;/h4&gt;
+      &lt;h4&gt;{resData.info?.sla?.deliveryTime} Minutes&lt;/h4&gt;
+    &lt;/Link&gt;
   );
 };
 &nbsp;
-export default ContactUs;
+export default RestaruntCard;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -142,16 +169,16 @@ export default ContactUs;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-07T03:37:10.425Z
+                at 2024-03-08T11:39:12.579Z
             </div>
-        <script src="prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="sorter.js"></script>
-        <script src="block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     

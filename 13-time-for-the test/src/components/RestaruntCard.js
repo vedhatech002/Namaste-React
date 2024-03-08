@@ -5,11 +5,13 @@ const RestaruntCard = (props) => {
   const { resData } = props;
   //   const {resName, cuisine, avgRating } = resData;
   //   const { deliveryTime } = resData?.sla;\
+
   const { cuisines } = resData?.info;
   return (
     <Link
       to={"/restaurant/" + resData.info?.id}
       className="w-[250px]  p-2 bg-slate-300 rounded-md"
+      data-testid="resCard"
     >
       <img
         className="w-full h-36 object-cover"
